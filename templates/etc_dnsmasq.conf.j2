@@ -69,5 +69,10 @@ srv-host={{ host.name }}{% if host.target is defined %},{{ host.target }}{% endi
 
 {% endfor %}
 {% endif %}
+bind-interfaces
+
+{% if dnsmasq_ignore_loopback %}
+except-interface=lo
+{% endif %}
 
 conf-dir=/etc/dnsmasq.d
